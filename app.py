@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt import JWT
@@ -25,7 +27,7 @@ app = Flask(__name__)
 # Tell tu SQLALchemy where to find the database
 # SQLALchemy database is gonna live at the root folder of our project
 # and read database.db to work *It doesn't have to be SQLIte*
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///database.db')
 # To replace the extension flask SQLALchemy that tracks changes we made
 # For the main SQLALchemy library modification tracker which is better
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
