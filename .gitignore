@@ -1,0 +1,6 @@
+# Contain patterns that we are going to be ignored when it comes
+# to adding them to Git
+
+.DS_store
+__pycache__/
+*.pyc
