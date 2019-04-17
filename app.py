@@ -35,12 +35,6 @@ app.secret_key = 'xxx'
 # Allow us to add the resource to the app
 api = Api(app)
 
-""" Tells to SQLALchemy to create the tables defined in sqlite:///database.db
-We no longer need create_table.py"""
-@app.before_first_request  # execute this before first requeust
-def create_tables():
-    db.create_all()
-
 
 """JWT is going to use our app, the authenticate and identiy
 functions (from security) together to allow for authentication of the users
